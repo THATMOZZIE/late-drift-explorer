@@ -111,14 +111,6 @@ function App() {
           nextQuestion="Which parts of the learned adapter account for the onset-specific effect?"
           nextHref="#localization"
         />
-
-        <EvidenceBridge
-          result="Removing the rewrite adapter lowers welfare-span log probability by +3.175 on average, versus +1.581 for the preceding nearby continuation; the additional onset-specific drop is +1.594."
-          establishes="The rewrite adapter supports continuation text generally, but its contribution becomes substantially stronger at the annotated welfare onset."
-          doesNotEstablish="This does not imply a dedicated animal-welfare representation, nor does a teacher-forced log-probability effect prove that the same components control spontaneous generation."
-          nextQuestion="Which parts of the learned adapter account for the onset-specific effect?"
-          nextHref="#localization"
-        />
       </section>
 
       <section id="localization" className="chapter">
@@ -137,14 +129,6 @@ function App() {
           nextQuestion="What token-level changes do the layers 4–7 MLP updates produce?"
           nextHref="#token-mechanism"
         />
-
-        <EvidenceBridge
-          result="Layers 4–7 account for the strongest localized onset-specific effect (+1.008), and within that group MLP LoRA changes account for +0.907 versus +0.048 for attention."
-          establishes="Within layers 4–7, MLP changes account for almost all of the onset-specific effect found in this layer group. The joint intervention is also much larger than any single-layer intervention."
-          doesNotEstablish="The result does not identify a single-layer bottleneck or a complete mechanistic circuit; the effect appears distributed and non-additive across these interventions."
-          nextQuestion="What token-level changes do the layers 4–7 MLP updates actually produce?"
-          nextHref="#token-mechanism"
-        />
       </section>
 
       <section id="token-mechanism" className="chapter">
@@ -159,14 +143,6 @@ function App() {
           result="At the welfare boundary, strongly boosted first-token alternatives are transition and conditional continuations such as “while” and “if”; welfare-semantic token boosts become prominent later in the span. Relative support for stopping also decreases more at onset in 27 of 46 examples."
           establishes="The localized MLP changes appear to help open an additional ending before supporting the welfare-specific content that follows. Reduced stopping support contributes in many examples, but is not the whole effect."
           doesNotEstablish="Fixed-prefix token effects do not show that removing these MLP updates will actually prevent welfare leakage during unconstrained generation."
-          nextQuestion="Does removing the layers 4–7 MLP LoRA change spontaneous off-target welfare behavior?"
-          nextHref="#causal-behavior"
-        />
-
-        <EvidenceBridge
-          result="At the welfare boundary, the strongest boosted first-token alternatives are transition and conditional continuations such as while and if; welfare-semantic token boosts become prominent later in the span."
-          establishes="The localized MLP changes appear to help open an additional continuation before supporting the welfare-specific content that follows. In many cases they also reduce relative support for stopping."
-          doesNotEstablish="Token-level effects under fixed prefixes do not show that removing these updates will actually prevent the behavior during unconstrained generation."
           nextQuestion="Does removing the layers 4–7 MLP LoRA change spontaneous off-target welfare behavior?"
           nextHref="#causal-behavior"
         />
@@ -187,14 +163,6 @@ function App() {
           nextQuestion="Can the intervention suppress irrelevant welfare deployment while preserving useful welfare reasoning and ordinary capability?"
           nextHref="#selectivity"
         />
-
-        <EvidenceBridge
-          result="Removing only the layers 4–7 MLP LoRA reduced welfare intrusions from 20/30 to 7/30 on the same factual prompts, with no MLP-removed-only intrusions."
-          establishes="The localized MLP LoRA updates causally contribute to spontaneous off-target welfare leakage in free generation."
-          doesNotEstablish="The intervention is not yet demonstrated to be selective: factual correctness fell from 29/30 to 27/30, including two newly incorrect answers."
-          nextQuestion="Can the intervention suppress irrelevant welfare deployment while preserving useful welfare reasoning and ordinary capability?"
-          nextHref="#selectivity"
-        />
       </section>
 
       <section id="selectivity" className="chapter locked">
@@ -207,6 +175,7 @@ function App() {
 }
 
 export default App
+
 
 
 
