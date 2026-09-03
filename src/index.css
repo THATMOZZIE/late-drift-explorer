@@ -2198,3 +2198,153 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   HERO — development status + causal investigation roadmap
+   ========================================================= */
+
+.development-notice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  max-width: 790px;
+  margin-top: 34px;
+  padding: 13px 15px;
+  border-left: 2px solid rgba(255, 200, 110, 0.68);
+  background: rgba(255, 200, 110, 0.035);
+}
+
+.development-notice > span {
+  color: #ffc86e;
+  font-size: 0.67rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.development-notice p {
+  margin: 0;
+  color: rgba(242, 243, 245, 0.58);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.causal-roadmap {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0;
+  width: min(1080px, 100%);
+  margin-top: 54px;
+}
+
+.causal-roadmap::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 7%;
+  left: 7%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(143, 156, 255, 0.55),
+    rgba(123, 245, 196, 0.52),
+    rgba(255, 255, 255, 0.12)
+  );
+  pointer-events: none;
+}
+
+.roadmap-step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  min-width: 0;
+  padding: 0 8px;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+}
+
+.roadmap-number {
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  margin-bottom: 11px;
+  border: 1px solid rgba(143, 156, 255, 0.32);
+  border-radius: 50%;
+  background: #0b0d12;
+  color: #a7b0ff;
+  font-size: 0.67rem;
+  font-variant-numeric: tabular-nums;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.roadmap-step strong {
+  color: rgba(242, 243, 245, 0.82);
+  font-size: 0.75rem;
+  font-weight: 650;
+  transition: color 160ms ease;
+}
+
+.roadmap-step small {
+  display: block;
+  margin-top: 4px;
+  color: rgba(242, 243, 245, 0.34);
+  font-size: 0.63rem;
+  line-height: 1.3;
+}
+
+.roadmap-step:hover .roadmap-number {
+  transform: translateY(-3px);
+  border-color: rgba(123, 245, 196, 0.65);
+  background: rgba(123, 245, 196, 0.075);
+}
+
+.roadmap-step:hover strong {
+  color: #ffffff;
+}
+
+.roadmap-step.pending {
+  opacity: 0.48;
+}
+
+.roadmap-step.pending .roadmap-number {
+  border-style: dashed;
+}
+
+.chapter {
+  scroll-margin-top: 32px;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    min-height: auto;
+    padding: 100px 0 80px;
+  }
+
+  .causal-roadmap {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px 8px;
+  }
+
+  .causal-roadmap::before {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .development-notice {
+    grid-template-columns: 1fr;
+  }
+
+  .causal-roadmap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
