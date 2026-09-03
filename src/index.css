@@ -2348,3 +2348,111 @@ h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* =========================================================
+   SCIENTIFIC EVIDENCE BRIDGES
+   ========================================================= */
+
+.evidence-bridge {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 1.7fr 1.15fr;
+  gap: 0;
+  margin-top: 48px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.evidence-result,
+.evidence-logic,
+.evidence-next {
+  min-width: 0;
+  padding: 18px 20px;
+}
+
+.evidence-result {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(123, 245, 196, 0.055),
+      rgba(123, 245, 196, 0.012)
+    );
+}
+
+.evidence-logic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.evidence-bridge span {
+  display: block;
+  margin-bottom: 7px;
+  color: rgba(242, 243, 245, 0.38);
+  font-size: 0.64rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.evidence-result > span {
+  color: #7bf5c4;
+}
+
+.evidence-bridge p {
+  margin: 0;
+  color: rgba(242, 243, 245, 0.67);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.evidence-next {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+  transition: background 160ms ease;
+}
+
+a.evidence-next:hover {
+  background: rgba(143, 156, 255, 0.055);
+}
+
+.evidence-next strong {
+  color: rgba(242, 243, 245, 0.88);
+  font-size: 0.82rem;
+  line-height: 1.42;
+}
+
+.evidence-next small {
+  margin-top: 10px;
+  color: #8f9cff;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 950px) {
+  .evidence-bridge {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-logic {
+    border-right: 0;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+}
+
+@media (max-width: 620px) {
+  .evidence-logic {
+    grid-template-columns: 1fr;
+  }
+}
