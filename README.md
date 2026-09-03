@@ -2,7 +2,7 @@
 
 **Mechanistic investigation of off-target animal-welfare behavior after rationale fine-tuning**
 
-Researcher: **THATMOZZIE**
+Researcher: **Massimo Biagiotti**
 
 Live explorer:  
 https://thatmozzie.github.io/late-drift-explorer/
