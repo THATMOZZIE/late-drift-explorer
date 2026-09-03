@@ -1,10 +1,10 @@
 ﻿import type { LocalizationInteractionComparison } from '../types/localizationInteraction'
 
 /*
-  Frontend fixture using already-established experiment summary values.
-  Replace with the frozen notebook visualization export later.
+  Established aggregate experiment values.
+  These will later be replaced by the validated frozen notebook export.
 */
-export const demoLocalizationInteraction: LocalizationInteractionComparison = {
+export const establishedLocalizationInteraction: LocalizationInteractionComparison = {
   jointLabel: 'Layers 4–7 jointly removed',
   jointEffect: 1.0081,
 
@@ -31,3 +31,4 @@ export const demoLocalizationInteraction: LocalizationInteractionComparison = {
     },
   ],
 }
+

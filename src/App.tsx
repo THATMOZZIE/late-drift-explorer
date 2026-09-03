@@ -1,21 +1,15 @@
-﻿import ResponseTimeline from './components/ResponseTimeline'
-import LocalizationExplorer from './components/LocalizationExplorer'
-import TokenMechanismExplorer from './components/TokenMechanismExplorer'
-import InterventionSankey from './components/InterventionSankey'
-import OnsetControlScatter from './components/OnsetControlScatter'
+﻿import LocalizationExplorer from './components/LocalizationExplorer'
 import EvidenceBridge from './components/EvidenceBridge'
 import CausalResultSummary from './components/CausalResultSummary'
 import SelectivityProtocol from './components/SelectivityProtocol'
 import DiscoveryComparison from './components/DiscoveryComparison'
-import { demoOnsetControl } from './data/demoOnsetControl'
+import BehaviorPhenotypeSummary from './components/BehaviorPhenotypeSummary'
+import PendingFrozenExport from './components/PendingFrozenExport'
 
-import { demoLateDriftExamples } from './data/demoLateDrift'
-import { demoBehaviorPhenotype } from './data/demoBehaviorPhenotype'
-import { demoLocalization } from './data/demoLocalization'
-import { demoLocalizationInteraction } from './data/demoLocalizationInteraction'
-import { demoTokenMechanismExamples } from './data/demoTokenMechanism'
-import { demoPairedIntervention } from './data/demoPairedIntervention'
+import { establishedLocalization } from './data/establishedLocalization'
+import { establishedLocalizationInteraction } from './data/establishedLocalizationInteraction'
 import { establishedCausalIntervention } from './data/establishedCausalIntervention'
+import { establishedBehaviorPhenotype } from './data/establishedBehaviorPhenotype'
 import { frozenSelectivityProtocol } from './data/frozenSelectivityProtocol'
 
 function App() {
@@ -128,9 +122,14 @@ function App() {
 
         <DiscoveryComparison />
 
-        <ResponseTimeline
-          examples={demoLateDriftExamples}
-          phenotype={demoBehaviorPhenotype}
+        <BehaviorPhenotypeSummary
+          phenotype={establishedBehaviorPhenotype}
+        />
+
+        <PendingFrozenExport
+          title="Exact response timeline pending frozen export"
+          established="45/46 intrusions began after the requested answer was complete; median onset was 70.2% by character position."
+          expectedExport="The validated 46-response onset table with exact response text, onset positions, and annotations."
         />
 
         <EvidenceBridge
@@ -146,7 +145,11 @@ function App() {
         <p className="chapter-number">02</p>
         <h2>Is the effect specific to the welfare onset?</h2>
 
-        <OnsetControlScatter examples={demoOnsetControl} />
+        <PendingFrozenExport
+          title="Response-level onset scatter pending frozen export"
+          established="The welfare-span effect exceeded the nearby-continuation effect in 42/46 examples; mean onset-specific effect was +1.594 log probability."
+          expectedExport="All 46 matched welfare-span and nearby-continuation measurements from the validated notebook output."
+        />
 
         <EvidenceBridge
           result="The rewrite adapter contributes +3.175 mean log probability to the 14-token welfare span, versus +1.581 to the preceding nearby continuation. The additional onset-specific effect is +1.594, with welfare greater than nearby in 42 of 46 examples."
@@ -162,8 +165,8 @@ function App() {
         <h2>Where in the learned adapter does the effect come from?</h2>
 
         <LocalizationExplorer
-          root={demoLocalization}
-          interactionComparison={demoLocalizationInteraction}
+          root={establishedLocalization}
+          interactionComparison={establishedLocalizationInteraction}
         />
 
         <EvidenceBridge
@@ -179,8 +182,10 @@ function App() {
         <p className="chapter-number">04</p>
         <h2>What do those components change at the token level?</h2>
 
-        <TokenMechanismExplorer
-          examples={demoTokenMechanismExamples}
+        <PendingFrozenExport
+          title="Exact token trace pending frozen export"
+          established="Transition and conditional continuations are strongly boosted at the welfare boundary; welfare-semantic boosts become prominent later, while stopping support falls more at onset in 27/46 examples."
+          expectedExport="A validated 14-token representative trace selected by a pre-specified non-cherry-picked rule, together with the underlying token-effect measurements."
         />
 
         <EvidenceBridge
@@ -200,8 +205,10 @@ function App() {
           summary={establishedCausalIntervention}
         />
 
-        <InterventionSankey
-          examples={demoPairedIntervention}
+        <PendingFrozenExport
+          title="Paired response browser pending frozen export"
+          established="13 prompts changed intrusion → clean, 7 remained intrusion → intrusion, 0 changed clean → intrusion, and 10 remained clean → clean."
+          expectedExport="All 30 matched full-rewrite and layers 4–7 MLP-removed responses with frozen behavioral labels."
         />
 
         <EvidenceBridge
@@ -226,6 +233,8 @@ function App() {
 }
 
 export default App
+
+
 
 
 

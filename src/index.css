@@ -3732,3 +3732,138 @@ a.evidence-next:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   FROZEN EXPORT PLACEHOLDERS
+   Synthetic response-level fixtures intentionally removed.
+   ========================================================= */
+
+.phenotype-only {
+  margin-bottom: 18px;
+}
+
+.pending-frozen-export {
+  margin: 22px 0 34px;
+  overflow: hidden;
+  border: 1px solid rgba(143, 156, 255, 0.11);
+  border-radius: 15px;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(143, 156, 255, 0.035),
+      rgba(143, 156, 255, 0.008) 60%,
+      transparent
+    );
+}
+
+.pending-export-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+  color: rgba(167, 176, 255, 0.8);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pending-export-dot {
+  width: 6px;
+  height: 6px;
+  border: 1px solid #8f9cff;
+  border-radius: 50%;
+}
+
+.pending-export-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 34px;
+  padding: 21px 22px;
+}
+
+.pending-export-content h4 {
+  margin: 0 0 7px;
+  color: rgba(242, 243, 245, 0.88);
+  font-size: 0.92rem;
+}
+
+.pending-export-content > div:first-child > p {
+  max-width: 590px;
+  margin: 0;
+  color: rgba(242, 243, 245, 0.48);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.pending-export-established {
+  padding-left: 22px;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pending-export-established span,
+.pending-export-established strong {
+  display: block;
+}
+
+.pending-export-established span {
+  margin-bottom: 7px;
+  color: #7bf5c4;
+  font-size: 0.59rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pending-export-established strong {
+  color: rgba(242, 243, 245, 0.72);
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.pending-export-footer {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  padding: 12px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.pending-export-footer span {
+  flex: 0 0 auto;
+  color: rgba(242, 243, 245, 0.3);
+  font-size: 0.58rem;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.pending-export-footer p {
+  margin: 0;
+  color: rgba(242, 243, 245, 0.34);
+  font-size: 0.67rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 720px) {
+  .pending-export-content {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .pending-export-established {
+    padding-top: 17px;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-left: 0;
+  }
+
+  .pending-export-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

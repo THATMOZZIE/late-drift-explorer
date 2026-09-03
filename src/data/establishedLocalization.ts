@@ -1,6 +1,11 @@
 ﻿import type { LocalizationNode } from '../types/localization'
 
-export const demoLocalization: LocalizationNode = {
+/*
+  Established aggregate experiment values.
+  These will later be replaced by the validated frozen notebook export.
+*/
+
+export const establishedLocalization: LocalizationNode = {
   id: 'all-layers',
   label: 'Rewrite LoRA',
   effect: 0,
@@ -27,7 +32,7 @@ export const demoLocalization: LocalizationNode = {
           positiveCount: 36,
           totalCount: 46,
           note:
-            'The joint effect is much larger than any single layer, suggesting a distributed or interacting contribution.',
+            'The joint effect is much larger than any single tested layer, consistent with a distributed or non-additive contribution across these interventions.',
           children: [
             {
               id: 'individual-layers',
@@ -76,7 +81,7 @@ export const demoLocalization: LocalizationNode = {
                   positiveCount: 37,
                   totalCount: 46,
                   note:
-                    'Most of the onset-specific effect within layers 4–7 comes from the MLP LoRA updates.',
+                    'Within layers 4–7, MLP LoRA changes account for almost all of the onset-specific effect found in this layer group.',
                 },
                 {
                   id: 'attention-4-7',
@@ -114,3 +119,4 @@ export const demoLocalization: LocalizationNode = {
     },
   ],
 }
+
