@@ -4,6 +4,7 @@ import TokenMechanismExplorer from './components/TokenMechanismExplorer'
 import InterventionSankey from './components/InterventionSankey'
 import OnsetControlScatter from './components/OnsetControlScatter'
 import EvidenceBridge from './components/EvidenceBridge'
+import CausalResultSummary from './components/CausalResultSummary'
 import { demoOnsetControl } from './data/demoOnsetControl'
 
 import { demoLateDriftExamples } from './data/demoLateDrift'
@@ -12,6 +13,7 @@ import { demoLocalization } from './data/demoLocalization'
 import { demoLocalizationInteraction } from './data/demoLocalizationInteraction'
 import { demoTokenMechanismExamples } from './data/demoTokenMechanism'
 import { demoPairedIntervention } from './data/demoPairedIntervention'
+import { establishedCausalIntervention } from './data/establishedCausalIntervention'
 
 function App() {
   return (
@@ -152,6 +154,10 @@ function App() {
         <p className="chapter-number">05</p>
         <h2>Does removing them change free generation?</h2>
 
+        <CausalResultSummary
+          summary={establishedCausalIntervention}
+        />
+
         <InterventionSankey
           examples={demoPairedIntervention}
         />
@@ -175,6 +181,7 @@ function App() {
 }
 
 export default App
+
 
 
 
