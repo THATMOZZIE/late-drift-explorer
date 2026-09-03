@@ -5,6 +5,7 @@ import InterventionSankey from './components/InterventionSankey'
 import OnsetControlScatter from './components/OnsetControlScatter'
 import EvidenceBridge from './components/EvidenceBridge'
 import CausalResultSummary from './components/CausalResultSummary'
+import SelectivityProtocol from './components/SelectivityProtocol'
 import { demoOnsetControl } from './data/demoOnsetControl'
 
 import { demoLateDriftExamples } from './data/demoLateDrift'
@@ -14,6 +15,7 @@ import { demoLocalizationInteraction } from './data/demoLocalizationInteraction'
 import { demoTokenMechanismExamples } from './data/demoTokenMechanism'
 import { demoPairedIntervention } from './data/demoPairedIntervention'
 import { establishedCausalIntervention } from './data/establishedCausalIntervention'
+import { frozenSelectivityProtocol } from './data/frozenSelectivityProtocol'
 
 function App() {
   return (
@@ -171,16 +173,20 @@ function App() {
         />
       </section>
 
-      <section id="selectivity" className="chapter locked">
+      <section id="selectivity" className="chapter selectivity-chapter">
         <p className="chapter-number">06</p>
         <h2>Is the intervention selective?</h2>
-        <p>Pending blinded behavioral qualification.</p>
+
+        <SelectivityProtocol
+          protocol={frozenSelectivityProtocol}
+        />
       </section>
     </main>
   )
 }
 
 export default App
+
 
 
 
