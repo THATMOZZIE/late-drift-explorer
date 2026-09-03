@@ -3,6 +3,7 @@ import EvidenceBridge from './components/EvidenceBridge'
 import CausalResultSummary from './components/CausalResultSummary'
 import SelectivityProtocol from './components/SelectivityProtocol'
 import DiscoveryComparison from './components/DiscoveryComparison'
+import ResearchFooter from './components/ResearchFooter'
 import BehaviorPhenotypeSummary from './components/BehaviorPhenotypeSummary'
 import PendingFrozenExport from './components/PendingFrozenExport'
 
@@ -111,7 +112,7 @@ function App() {
           <a href="#selectivity" className="roadmap-step pending">
             <span className="roadmap-number">06</span>
             <strong>Test selectivity</strong>
-            <small>blinded · pending</small>
+            <small>protocol frozen</small>
           </a>
         </nav>
       </header>
@@ -228,11 +229,14 @@ function App() {
           protocol={frozenSelectivityProtocol}
         />
       </section>
+      <ResearchFooter />
     </main>
   )
 }
 
 export default App
+
+
 
 
 
