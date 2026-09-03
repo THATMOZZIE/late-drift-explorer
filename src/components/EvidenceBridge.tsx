@@ -13,9 +13,9 @@ export default function EvidenceBridge({
   nextQuestion,
   nextHref,
 }: EvidenceBridgeProps) {
-  const content = (
+  const nextContent = (
     <>
-      <span>Next question</span>
+      <span className="evidence-label">Next question</span>
       <strong>{nextQuestion}</strong>
       {nextHref && <small>continue ↓</small>}
     </>
@@ -24,28 +24,32 @@ export default function EvidenceBridge({
   return (
     <aside className="evidence-bridge">
       <div className="evidence-result">
-        <span>Result</span>
+        <span className="evidence-label">Result</span>
         <p>{result}</p>
       </div>
 
       <div className="evidence-logic">
         <div>
-          <span>Establishes</span>
+          <span className="evidence-label establishes-label">
+            Establishes
+          </span>
           <p>{establishes}</p>
         </div>
 
         <div>
-          <span>Does not establish</span>
+          <span className="evidence-label limitation-label">
+            Does not establish
+          </span>
           <p>{doesNotEstablish}</p>
         </div>
       </div>
 
       {nextHref ? (
         <a className="evidence-next" href={nextHref}>
-          {content}
+          {nextContent}
         </a>
       ) : (
-        <div className="evidence-next">{content}</div>
+        <div className="evidence-next">{nextContent}</div>
       )}
     </aside>
   )
