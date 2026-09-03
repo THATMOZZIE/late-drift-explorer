@@ -6,6 +6,7 @@ import OnsetControlScatter from './components/OnsetControlScatter'
 import EvidenceBridge from './components/EvidenceBridge'
 import CausalResultSummary from './components/CausalResultSummary'
 import SelectivityProtocol from './components/SelectivityProtocol'
+import DiscoveryComparison from './components/DiscoveryComparison'
 import { demoOnsetControl } from './data/demoOnsetControl'
 
 import { demoLateDriftExamples } from './data/demoLateDrift'
@@ -31,6 +32,43 @@ function App() {
           An interactive causal investigation of off-target behavior induced by
           rationale fine-tuning.
         </p>
+
+        <p className="hero-problem">
+          The training was meant to improve animal-welfare reasoning when it
+          was useful. Instead, the model often finished an unrelated factual
+          answer and then added an unnecessary welfare-focused ending.
+        </p>
+
+        <div className="hero-result">
+          <div className="hero-result-label">
+            Current causal result
+          </div>
+
+          <p>
+            Removing only the rewrite <strong>LoRA</strong> updates
+            {' '} (low-rank fine-tuning weights) on <strong>MLP</strong>{' '}
+            feed-forward projections in layers 4–7 reduced off-target welfare
+            intrusions from <strong>20/30</strong> to <strong>7/30</strong>{' '}
+            on matched factual prompts.
+          </p>
+
+          <div className="hero-result-metrics">
+            <div>
+              <span>Welfare intrusions</span>
+              <strong>20/30 → 7/30</strong>
+            </div>
+
+            <div>
+              <span>Factual correctness</span>
+              <strong>29/30 → 27/30</strong>
+            </div>
+
+            <div className="unresolved">
+              <span>Interpretation</span>
+              <strong>Selectivity unresolved</strong>
+            </div>
+          </div>
+        </div>
 
         <div className="development-notice">
           <span>Development preview</span>
@@ -87,6 +125,8 @@ function App() {
       <section id="behavior" className="chapter">
         <p className="chapter-number">01</p>
         <h2>The behavior</h2>
+
+        <DiscoveryComparison />
 
         <ResponseTimeline
           examples={demoLateDriftExamples}
@@ -186,6 +226,8 @@ function App() {
 }
 
 export default App
+
+
 
 
 
