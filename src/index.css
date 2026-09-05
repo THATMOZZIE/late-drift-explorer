@@ -342,7 +342,7 @@ blockquote p { font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); fon
   .journal-mark { font-size: 20px; }
   .issue-meta { font-size: 8px; }
   .masthead-rule { margin: 17px 0 28px; }
-  .paper-header h1 { font-size: clamp(43px, 12vw, 58px); }
+  .paper-header h1 { font-size: 48px; }
   .deck { font-size: 18px; }
   .abstract-grid { grid-template-columns: 1fr; gap: 26px; }
   .chapter { padding-top: 44px; padding-bottom: 50px; }
@@ -382,6 +382,23 @@ blockquote p { font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); fon
   .methods-grid > div, .methods-grid > div:nth-child(even) { min-height: auto; padding: 17px 0; border-left: 0; }
   .claim-ledger > div { grid-template-columns: 1fr; gap: 7px; }
   .site-footer { flex-direction: column; padding: 25px 20px; }
+}
+
+@media (min-width: 471px) and (max-width: 760px) {
+  .site-header { grid-template-columns: 1fr auto; }
+  .site-header nav, .site-header nav.open {
+    position: static;
+    display: flex;
+    width: auto;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .site-header nav a { height: 100%; padding: 0 4px; border: 0; }
+  .site-header nav a + a::before { display: inline; margin-right: 4px; }
+  .menu-button, .code-link { display: none; }
 }
 
 @media (max-width: 470px) {
