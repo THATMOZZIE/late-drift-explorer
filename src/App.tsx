@@ -13,7 +13,7 @@ import {
   type ResponseExample,
 } from './data/journalData'
 
-const COLORS = { red: '#b4232f', blue: '#28678d', ink: '#17191b' }
+const COLORS = { red: '#ef6b7d', blue: '#76b9dc', ink: '#f1eee8' }
 
 function Figure({ number, title, subtitle, caption, children, className = '' }: {
   number: string; title: string; subtitle?: string; caption: ReactNode; children: ReactNode; className?: string
@@ -110,10 +110,10 @@ function OnsetPlot() {
   return (
     <div className="onset-chart-wrap">
       <svg className="onset-chart" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Position in answer where welfare passage begins">
-        <rect x={x(50)} y={25} width={x(100) - x(50)} height={245} fill="#fbf4f2" />
+        <rect x={x(50)} y={25} width={x(100) - x(50)} height={245} fill="rgba(239, 107, 125, .055)" />
         {[0, 25, 50, 75, 100].map((tick) => (
           <g key={tick}>
-            <line x1={x(tick)} x2={x(tick)} y1={25} y2={270} stroke={tick === 50 ? '#89949c' : '#e4e7e9'} strokeDasharray={tick === 50 ? '5 5' : undefined} />
+            <line x1={x(tick)} x2={x(tick)} y1={25} y2={270} stroke={tick === 50 ? '#747c81' : '#343a3e'} strokeDasharray={tick === 50 ? '5 5' : undefined} />
             <text x={x(tick)} y={295} textAnchor="middle" className="axis-label">{tick}%</text>
           </g>
         ))}
@@ -131,9 +131,9 @@ function OnsetPlot() {
               <line x1={x(q1)} x2={x(q3)} y1={rowY} y2={rowY} stroke={COLORS.ink} strokeWidth="5" strokeLinecap="round" />
               {group.values.map((value, index) => {
                 const jitter = ((index % 5) - 2) * 5
-                return <circle key={`${group.label}-${index}`} cx={x(value)} cy={rowY + jitter} r="5.5" fill={group.color} fillOpacity="0.82" stroke="white" strokeWidth="1" />
+                return <circle key={`${group.label}-${index}`} cx={x(value)} cy={rowY + jitter} r="5.5" fill={group.color} fillOpacity="0.88" stroke="#181b1d" strokeWidth="1" />
               })}
-              <rect x={x(groupMedian) - 6} y={rowY - 6} width="12" height="12" fill={COLORS.ink} stroke="white" strokeWidth="1.5" transform={`rotate(45 ${x(groupMedian)} ${rowY})`} />
+              <rect x={x(groupMedian) - 6} y={rowY - 6} width="12" height="12" fill={COLORS.ink} stroke="#181b1d" strokeWidth="1.5" transform={`rotate(45 ${x(groupMedian)} ${rowY})`} />
             </g>
           )
         })}
@@ -203,10 +203,10 @@ function LocalizationExplorer() {
 }
 
 function tokenStyle(change: number | null): CSSProperties {
-  if (change === null) return { background: '#f2f3f4', color: '#4d555b' }
+  if (change === null) return { background: '#303539', color: '#a9b0b4' }
   const strength = Math.min(Math.abs(change) / 12, 1)
-  if (change >= 0) return { background: `rgba(180, 35, 47, ${0.1 + strength * 0.55})`, color: strength > 0.52 ? '#fff' : '#5d1119' }
-  return { background: `rgba(40, 103, 141, ${0.1 + strength * 0.55})`, color: strength > 0.52 ? '#fff' : '#17415a' }
+  if (change >= 0) return { background: `rgba(239, 107, 125, ${0.13 + strength * 0.62})`, color: strength > 0.42 ? '#17191b' : '#f1d7db' }
+  return { background: `rgba(118, 185, 220, ${0.13 + strength * 0.62})`, color: strength > 0.42 ? '#111719' : '#d5ebf6' }
 }
 
 function TokenExplorer() {
@@ -272,18 +272,23 @@ function App() {
   return (
     <>
       <header className="site-header">
-        <a className="journal-mark" href="#top" aria-label="Back to top"><span>Scope</span><strong>&amp;</strong><span>Generalization</span></a>
+        <a className="utility-title" href="#top" aria-label="Back to top">Late Drift · Research Article</a>
         <button type="button" className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>Menu</button>
-        <nav className={menuOpen ? 'open' : ''} onClick={() => setMenuOpen(false)}><a href="#summary">Summary</a><a href="#experiment-1">Behavior</a><a href="#experiment-2">Late drift</a><a href="#experiment-3">Mechanism</a><a href="#control">Control</a><a href="#methods">Methods</a></nav>
-        <a className="code-link" href="https://github.com/THATMOZZIE/late-drift-explorer" target="_blank" rel="noreferrer">Code &amp; data ↗</a>
+        <nav className={menuOpen ? 'open' : ''} onClick={() => setMenuOpen(false)}><a href="#summary">Abstract</a><a href="#experiment-1">Results</a><a href="#methods">Methods</a><a href="#methods">Limitations</a></nav>
+        <a className="code-link" href="https://github.com/THATMOZZIE/late-drift-explorer" target="_blank" rel="noreferrer">Code ↗</a>
       </header>
 
       <main id="top"><article className="paper-shell">
         <header className="paper-header">
-          <p className="kicker">Mechanistic interpretability · Supervised fine-tuning · September 2026</p>
-          <h1>Finding a Cause Is Not Finding a Fix</h1>
+          <div className="masthead-row">
+            <a className="journal-mark" href="#top">Scope &amp; Generalization</a>
+            <div className="issue-meta"><span>Vol. 1 · September 2026</span><span>Qwen3.5–4B · LoRA SFT</span></div>
+          </div>
+          <div className="masthead-rule" />
+          <p className="kicker">Research article</p>
+          <h1>Finding a cause is not finding a fix</h1>
           <p className="deck">Tracing animal-welfare drift after supervised fine-tuning</p>
-          <div className="byline"><span>Independent research project</span><span>Qwen3.5-4B · LoRA adapters</span><span>Three linked experiments</span></div>
+          <div className="byline"><span>Independent research project</span><span>Three linked experiments</span></div>
         </header>
 
         <section className="abstract" id="summary">
