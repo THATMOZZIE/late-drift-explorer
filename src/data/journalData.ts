@@ -1,3 +1,9 @@
+/**
+ * Public display data exported from the completed experiment notebooks.
+ * This file replaces the synthetic frontend fixtures used by the old site.
+ * Private blinding keys and unpublished raw artifacts are intentionally absent.
+ */
+
 export interface TokenChange {
   position: number
   text: string
